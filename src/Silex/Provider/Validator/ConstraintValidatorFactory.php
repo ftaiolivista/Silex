@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Silex;
+namespace Silex\Provider\Validator;
 
+use Pimple\Container;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidatorFactoryInterface;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -24,7 +25,7 @@ use Symfony\Component\Validator\ConstraintValidator;
 class ConstraintValidatorFactory implements ConstraintValidatorFactoryInterface
 {
     /**
-     * @var \Pimple
+     * @var Container
      */
     protected $container;
 
@@ -39,12 +40,12 @@ class ConstraintValidatorFactory implements ConstraintValidatorFactoryInterface
     protected $validators;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param \Pimple $container    DI container
-     * @param array   $serviceNames Validator service names
+     * @param Container $container    DI container
+     * @param array     $serviceNames Validator service names
      */
-    public function __construct(\Pimple $container, array $serviceNames = array())
+    public function __construct(Container $container, array $serviceNames = array())
     {
         $this->container    = $container;
         $this->serviceNames = $serviceNames;
@@ -54,7 +55,8 @@ class ConstraintValidatorFactory implements ConstraintValidatorFactoryInterface
     /**
      * Returns the validator for the supplied constraint.
      *
-     * @param  Constraint          $constraint A constraint
+     * @param Constraint $constraint A constraint
+     *
      * @return ConstraintValidator A validator for the supplied constraint
      */
     public function getInstance(Constraint $constraint)
@@ -71,9 +73,10 @@ class ConstraintValidatorFactory implements ConstraintValidatorFactoryInterface
     }
 
     /**
-     * Returns the validator instance
+     * Returns the validator instance.
      *
-     * @param  string              $name
+     * @param string $name
+     *
      * @return ConstraintValidator
      */
     private function createValidator($name)
