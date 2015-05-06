@@ -21,7 +21,7 @@ use Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices;
 use Symfony\Component\Security\Http\RememberMe\ResponseListener;
 
 /**
- * Remember-me authentication for the SecurityServiceProvider.
+ * Remember-me authentication for the SecurityServiceProvider
  *
  * @author Jérôme Tamarelle <jerome@tamarelle.net>
  */
@@ -30,7 +30,7 @@ class RememberMeServiceProvider implements ServiceProviderInterface, EventListen
     public function register(Container $app)
     {
         $app['security.remember_me.response_listener'] = function ($app) {
-            if (!isset($app['security.token_storage'])) {
+            if (!isset($app['security'])) {
                 throw new \LogicException('You must register the SecurityServiceProvider to use the RememberMeServiceProvider');
             }
 

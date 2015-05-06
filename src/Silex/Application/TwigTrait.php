@@ -56,7 +56,7 @@ trait TwigTrait
      * @param string $view       The view name
      * @param array  $parameters An array of parameters to pass to the view
      *
-     * @return string The rendered view
+     * @return Response A Response instance
      */
     public function renderView($view, array $parameters = array())
     {

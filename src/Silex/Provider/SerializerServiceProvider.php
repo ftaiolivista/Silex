@@ -28,10 +28,12 @@ use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 class SerializerServiceProvider implements ServiceProviderInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * This method registers a serializer service. {@link http://api.symfony.com/master/Symfony/Component/Serializer/Serializer.html
      * The service is provided by the Symfony Serializer component}.
+     *
+     * @param Pimple $app
      */
     public function register(Container $app)
     {

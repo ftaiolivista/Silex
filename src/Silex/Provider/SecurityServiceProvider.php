@@ -80,7 +80,6 @@ class SecurityServiceProvider implements ServiceProviderInterface, EventListener
         $app['security.access_rules'] = array();
         $app['security.hide_user_not_found'] = true;
 
-        // the else part of this condition can be removed as soon as the Symfony 2.6 compat is removed
         $r = new \ReflectionMethod('Symfony\Component\Security\Http\Firewall\ContextListener', '__construct');
         $params = $r->getParameters();
         if ('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface' === $params[0]->getClass()->getName()) {
@@ -93,6 +92,7 @@ class SecurityServiceProvider implements ServiceProviderInterface, EventListener
             };
 
             $app['security'] = function ($app) {
+                // Deprecated, to be removed in 2.0
                 return new SecurityContext($app['security.token_storage'], $app['security.authorization_checker']);
             };
         } else {
@@ -101,6 +101,7 @@ class SecurityServiceProvider implements ServiceProviderInterface, EventListener
             };
 
             $app['security'] = function ($app) {
+                // Deprecated, to be removed in 2.0
                 return new SecurityContext($app['security.authentication_manager'], $app['security.access_manager']);
             };
         }

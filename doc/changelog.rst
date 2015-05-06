@@ -4,7 +4,6 @@ Changelog
 2.0.0 (2014-XX-XX)
 ------------------
 
-* bumped minimum version of PHP to 5.5.0
 * Updated Pimple to 3.0
 * Updated session listeners to extends HttpKernel ones
 * [BC BREAK] Locale management has been moved to LocaleServiceProvider which must be registered
@@ -26,12 +25,6 @@ Changelog
 * made Silex compatible with Symfony 2.7 (and keep compatibility with Symfony 2.3, 2.5, and 2.6)
 * removed deprecated TwigCoreExtension class (register the new HttpFragmentServiceProvider instead)
 * bumped minimum version of PHP to 5.3.9
-
-1.2.4 (2015-04-11)
-------------------
-
-* fixed the exception message when mounting a collection that doesn't return a ControllerCollection
-* fixed Symfony dependencies (Silex 1.2 is not compatible with Symfony 2.7)
 
 1.2.3 (2015-01-20)
 ------------------

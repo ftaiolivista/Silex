@@ -22,7 +22,7 @@ use Symfony\Component\Routing\Matcher\RedirectableUrlMatcher as BaseRedirectable
 class RedirectableUrlMatcher extends BaseRedirectableUrlMatcher
 {
     /**
-     * {@inheritdoc}
+     * @see RedirectableUrlMatcherInterface::match()
      */
     public function redirect($path, $route, $scheme = null)
     {

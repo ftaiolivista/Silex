@@ -48,7 +48,7 @@ class LogListener implements EventSubscriberInterface
     }
 
     /**
-     * Logs master requests on event KernelEvents::REQUEST.
+     * Logs master requests on event KernelEvents::REQUEST
      *
      * @param GetResponseEvent $event
      */
@@ -62,7 +62,7 @@ class LogListener implements EventSubscriberInterface
     }
 
     /**
-     * Logs master response on event KernelEvents::RESPONSE.
+     * Logs master response on event KernelEvents::RESPONSE
      *
      * @param FilterResponseEvent $event
      */
@@ -76,7 +76,7 @@ class LogListener implements EventSubscriberInterface
     }
 
     /**
-     * Logs uncaught exceptions on event KernelEvents::EXCEPTION.
+     * Logs uncaught exceptions on event KernelEvents::EXCEPTION
      *
      * @param GetResponseForExceptionEvent $event
      */
@@ -86,7 +86,7 @@ class LogListener implements EventSubscriberInterface
     }
 
     /**
-     * Logs a request.
+     * Logs a request
      *
      * @param Request $request
      */
@@ -96,7 +96,7 @@ class LogListener implements EventSubscriberInterface
     }
 
     /**
-     * Logs a response.
+     * Logs a response
      *
      * @param Response $response
      */
@@ -111,9 +111,6 @@ class LogListener implements EventSubscriberInterface
         $this->logger->log(LogLevel::DEBUG, $message);
     }
 
-    /**
-     * Logs an exception.
-     */
     protected function logException(\Exception $e)
     {
         $this->logger->log(call_user_func($this->exceptionLogFilter, $e), sprintf('%s: %s (uncaught exception) at %s line %s', get_class($e), $e->getMessage(), $e->getFile(), $e->getLine()), array('exception' => $e));
